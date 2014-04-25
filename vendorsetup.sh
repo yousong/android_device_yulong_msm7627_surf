@@ -1,0 +1,2 @@
+add_lunch_combo yulong_msm7627_surf-eng
+add_lunch_combo yulong_msm7627_surf-userdebug
