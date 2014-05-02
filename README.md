@@ -12,9 +12,9 @@ To boot into recovery mode, hold down BOTH VolumeUp and VolumeDown key when powe
 - The Power key at the right side of the phone can be used to lock the screen.
 - The Confirmation menu will have many "No" items.  To disable that, you can do the following with in `adb shell`.
 
-	    mkdir -p /sdcard/clockworkmod/
-	    ( cd /sdcard/clockworkmod/ && touch .no_confirm )
-	    ( cd /sdcard/clockworkmod/ && touch .one_confirm )
+		mkdir -p /sdcard/clockworkmod/
+		( cd /sdcard/clockworkmod/ && touch .no_confirm )
+		( cd /sdcard/clockworkmod/ && touch .one_confirm )
 
 ## CyanogenMod ROM
 
@@ -39,23 +39,23 @@ The following items are to be tested.
 
 1. Retrieve CyanogenMod source.
 
-	repo init -u git://github.com/CyanogenMod/android.git -b cm-7.0.3
-	repo sync
+		repo init -u git://github.com/CyanogenMod/android.git -b cm-7.0.3
+		repo sync
 
 2. Put the content of this project into directory `device/yulong/msm7627_surf/`.
 3. Apply patch in `patches/` directory for `frameworks/base`.
 4. Start the build.
 
-	source build/envsetup.sh
-	lunch
-	# select yulong_msm7627_surf-eng
-	m clobber && m -j4 ; \
-	    while true; do echo -ne "\a"  && sleep 1 ; done
+		source build/envsetup.sh
+		lunch
+		# select yulong_msm7627_surf-eng
+		m clobber && m -j4 ; \
+		    while true; do echo -ne "\a"  && sleep 1 ; done
 
 5. When the build is done, fail or succeed, bell sound will be played to remind you.
 6. The built image will be at the following place.
 
-	out/target/product/msm7627_surf/
+		out/target/product/msm7627_surf/
 
 ## Summary
 
