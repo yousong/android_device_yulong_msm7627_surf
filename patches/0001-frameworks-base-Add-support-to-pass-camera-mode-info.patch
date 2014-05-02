@@ -1,0 +1,444 @@
+From f30801a4d0d203323525705889c92bb0afc684ef Mon Sep 17 00:00:00 2001
+From: Yousong Zhou <yszhou4tech@gmail.com>
+Date: Fri, 2 May 2014 22:49:53 +0800
+Subject: [PATCH] frameworks/base: Add support to pass camera mode information.
+
+Add support to pass mode information along with camera ID in open
+interface.
+
+This is needed because the libcamera_client.so from the OEM has
+different prototype declaratio for some functions that would cause the
+following errors
+
+    prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/../lib/gcc/arm-eabi/4.4.3/../../../../arm-eabi/bin/ld: out/target/product/msm7627_surf/obj/SHARED_LIBRARIES/libandroid_runtime_intermediates/android_hardware_Camera.o: in function android_hardware_Camera_native_setup(_JNIEnv*, _jobject*, _jobject*, int):frameworks/base/core/jni/android_hardware_Camera.cpp:324: error: undefined reference to 'android::Camera::connect(int)'
+
+Which is caused by
+
+    yousong@debian:~/android/cm$ ./prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-nm out/target/product/msm7627_surf/obj/SHARED_LIBRARIES/libandroid_runtime_intermediates/android_hardware_Camera.o | grep conn
+    00000000 t _ZL33android_hardware_Camera_reconnectP7_JNIEnvP8_jobject
+	     U _ZN7android6Camera10disconnectEv
+	     U _ZN7android6Camera7connectEi
+	     U _ZN7android6Camera9reconnectEv
+    yousong@debian:~/android/yousong/V2.3.039.P1.121109.5860/UENCKPLY$ strings system.img.d/lib/libcamera_client.so | grep connect
+    _ZN7android6Camera9reconnectEv
+    _ZN7android6Camera7connectEii
+    _ZN7android6Camera10disconnectEv
+
+Change-Id: I003d6234216a1ea6a05cee4e568dba518f2e4a31
+Signed-off-by: Yousong Zhou <yszhou4tech@gmail.com>
+---
+ api/current.xml                                    |   47 ++++++++++++++++++++
+ core/java/android/hardware/Camera.java             |   26 +++++++++--
+ core/jni/android_hardware_Camera.cpp               |    9 +++-
+ core/jni/android_net_wifi_Wifi.cpp                 |   12 -----
+ include/camera/Camera.h                            |    8 +++-
+ include/camera/CameraHardwareInterface.h           |    2 +-
+ include/camera/ICameraService.h                    |    2 +-
+ libs/camera/Camera.cpp                             |    4 +-
+ libs/camera/ICameraService.cpp                     |    7 ++-
+ .../camera/libcameraservice/CameraHardwareStub.cpp |    3 +-
+ services/camera/libcameraservice/CameraService.cpp |    6 +-
+ services/camera/libcameraservice/CameraService.h   |    2 +-
+ 12 files changed, 96 insertions(+), 32 deletions(-)
+
+diff --git a/api/current.xml b/api/current.xml
+index e10b357..d808dd5 100644
+--- a/api/current.xml
++++ b/api/current.xml
+@@ -73346,6 +73346,21 @@
+  deprecated="not deprecated"
+  visibility="public"
+ >
++<parameter name="cameraId" type="int">
++</parameter>
++<parameter name="mode" type="int">
++</parameter>
++</method>
++<method name="open"
++ return="android.hardware.Camera"
++ abstract="false"
++ native="false"
++ synchronized="false"
++ static="true"
++ final="false"
++ deprecated="not deprecated"
++ visibility="public"
++>
+ </method>
+ <method name="reconnect"
+  return="void"
+@@ -73654,6 +73669,28 @@
+  visibility="public"
+ >
+ </field>
++<field name="CAMERA_SUPPORT_MODE_2D"
++ type="int"
++ transient="false"
++ volatile="false"
++ value="1"
++ static="true"
++ final="true"
++ deprecated="not deprecated"
++ visibility="public"
++>
++</field>
++<field name="CAMERA_SUPPORT_MODE_3D"
++ type="int"
++ transient="false"
++ volatile="false"
++ value="2"
++ static="true"
++ final="true"
++ deprecated="not deprecated"
++ visibility="public"
++>
++</field>
+ <field name="facing"
+  type="int"
+  transient="false"
+@@ -73664,6 +73701,16 @@
+  visibility="public"
+ >
+ </field>
++<field name="mode"
++ type="int"
++ transient="false"
++ volatile="false"
++ static="false"
++ final="false"
++ deprecated="not deprecated"
++ visibility="public"
++>
++</field>
+ <field name="orientation"
+  type="int"
+  transient="false"
+diff --git a/core/java/android/hardware/Camera.java b/core/java/android/hardware/Camera.java
+index aff017e..b7a7321 100644
+--- a/core/java/android/hardware/Camera.java
++++ b/core/java/android/hardware/Camera.java
+@@ -171,6 +171,18 @@ public class Camera {
+         public int facing;
+ 
+         /**
++         * The mode of sensor: 2D or 3D
++         */
++        public static final int CAMERA_SUPPORT_MODE_2D = 0x01;
++
++        /**
++         * The mode of sensor: 2D or 3D
++         */
++        public static final int CAMERA_SUPPORT_MODE_3D = 0x02;
++
++        public int mode;
++
++        /**
+          * The orientation of the camera image. The value is the angle that the
+          * camera image needs to be rotated clockwise so it shows correctly on
+          * the display in its natural orientation. It should be 0, 90, 180, or 270.
+@@ -217,7 +229,11 @@ public class Camera {
+      *     example, if the camera is in use by another process).
+      */
+     public static Camera open(int cameraId) {
+-        return new Camera(cameraId);
++        return new Camera(cameraId, CameraInfo.CAMERA_SUPPORT_MODE_2D);
++    }
++
++    public static Camera open(int cameraId, int mode) {
++        return new Camera(cameraId, mode);
+     }
+ 
+     /**
+@@ -232,13 +248,13 @@ public class Camera {
+         for (int i = 0; i < numberOfCameras; i++) {
+             getCameraInfo(i, cameraInfo);
+             if (cameraInfo.facing == CameraInfo.CAMERA_FACING_BACK) {
+-                return new Camera(i);
++                return new Camera(i, CameraInfo.CAMERA_SUPPORT_MODE_2D);
+             }
+         }
+         return null;
+     }
+ 
+-    Camera(int cameraId) {
++    Camera(int cameraId, int mode) {
+         mShutterCallback = null;
+         mRawImageCallback = null;
+         mJpegCallback = null;
+@@ -255,14 +271,14 @@ public class Camera {
+             mEventHandler = null;
+         }
+ 
+-        native_setup(new WeakReference<Camera>(this), cameraId);
++        native_setup(new WeakReference<Camera>(this), cameraId, mode);
+     }
+ 
+     protected void finalize() {
+         native_release();
+     }
+ 
+-    private native final void native_setup(Object camera_this, int cameraId);
++    private native final void native_setup(Object camera_this, int cameraId, int mode);
+     private native final void native_release();
+ 
+ 
+diff --git a/core/jni/android_hardware_Camera.cpp b/core/jni/android_hardware_Camera.cpp
+index c4ee2f1..2c051f5 100644
+--- a/core/jni/android_hardware_Camera.cpp
++++ b/core/jni/android_hardware_Camera.cpp
+@@ -35,6 +35,7 @@ struct fields_t {
+     jfieldID    context;
+     jfieldID    surface;
+     jfieldID    facing;
++    jfieldID    mode;
+     jfieldID    orientation;
+     jmethodID   post_event;
+ };
+@@ -314,14 +315,15 @@ static void android_hardware_Camera_getCameraInfo(JNIEnv *env, jobject thiz,
+         return;
+     }
+     env->SetIntField(info_obj, fields.facing, cameraInfo.facing);
++    env->SetIntField(info_obj, fields.mode, cameraInfo.mode);
+     env->SetIntField(info_obj, fields.orientation, cameraInfo.orientation);
+ }
+ 
+ // connect to camera service
+ static void android_hardware_Camera_native_setup(JNIEnv *env, jobject thiz,
+-    jobject weak_this, jint cameraId)
++    jobject weak_this, jint cameraId, jint mode)
+ {
+-    sp<Camera> camera = Camera::connect(cameraId);
++    sp<Camera> camera = Camera::connect(cameraId, mode);
+ 
+     if (camera == NULL) {
+         jniThrowException(env, "java/lang/RuntimeException",
+@@ -603,7 +605,7 @@ static JNINativeMethod camMethods[] = {
+     "(ILandroid/hardware/Camera$CameraInfo;)V",
+     (void*)android_hardware_Camera_getCameraInfo },
+   { "native_setup",
+-    "(Ljava/lang/Object;I)V",
++    "(Ljava/lang/Object;II)V",
+     (void*)android_hardware_Camera_native_setup },
+   { "native_release",
+     "()V",
+@@ -697,6 +699,7 @@ int register_android_hardware_Camera(JNIEnv *env)
+         { "android/hardware/Camera", "mNativeContext",   "I", &fields.context },
+         { "android/view/Surface",    ANDROID_VIEW_SURFACE_JNI_ID, "I", &fields.surface },
+         { "android/hardware/Camera$CameraInfo", "facing",   "I", &fields.facing },
++        { "android/hardware/Camera$CameraInfo", "mode",   "I", &fields.mode },
+         { "android/hardware/Camera$CameraInfo", "orientation",   "I", &fields.orientation },
+     };
+ 
+diff --git a/core/jni/android_net_wifi_Wifi.cpp b/core/jni/android_net_wifi_Wifi.cpp
+index 6aca6c2..e0764a8 100644
+--- a/core/jni/android_net_wifi_Wifi.cpp
++++ b/core/jni/android_net_wifi_Wifi.cpp
+@@ -118,16 +118,6 @@ static jboolean android_net_wifi_unloadDriver(JNIEnv* env, jobject clazz)
+     return (jboolean)(::wifi_unload_driver() == 0);
+ }
+ 
+-static jboolean android_net_hotspot_loadDriver(JNIEnv* env, jobject clazz)
+-{
+-    return (jboolean)(::hotspot_load_driver() == 0);
+-}
+-
+-static jboolean android_net_hotspot_unloadDriver(JNIEnv* env, jobject clazz)
+-{
+-    return (jboolean)(::hotspot_unload_driver() == 0);
+-}
+-
+ static jboolean android_net_wifi_startSupplicant(JNIEnv* env, jobject clazz)
+ {
+     return (jboolean)(::wifi_start_supplicant() == 0);
+@@ -554,8 +544,6 @@ static JNINativeMethod gWifiMethods[] = {
+ 
+     { "loadDriver", "()Z",  (void *)android_net_wifi_loadDriver },
+     { "unloadDriver", "()Z",  (void *)android_net_wifi_unloadDriver },
+-    { "loadHotspotDriver", "()Z",  (void *)android_net_hotspot_loadDriver },
+-    { "unloadHotspotDriver", "()Z",  (void *)android_net_hotspot_unloadDriver },
+     { "startSupplicant", "()Z",  (void *)android_net_wifi_startSupplicant },
+     { "stopSupplicant", "()Z",  (void *)android_net_wifi_stopSupplicant },
+     { "connectToSupplicant", "()Z",  (void *)android_net_wifi_connectToSupplicant },
+diff --git a/include/camera/Camera.h b/include/camera/Camera.h
+index 2222a79..d10d283 100644
+--- a/include/camera/Camera.h
++++ b/include/camera/Camera.h
+@@ -132,6 +132,11 @@ enum {
+     CAMERA_FACING_FRONT = 1 /* The facing of the camera is the same as that of the screen. */
+ };
+ 
++enum {
++    CAMERA_SUPPORT_MODE_2D = 0x01, /* Camera Sensor supports 2D mode. */
++    CAMERA_SUPPORT_MODE_3D = 0x02 /* Camera Sensor supports 3D mode. */
++};
++
+ struct CameraInfo {
+ 
+     /**
+@@ -140,6 +145,7 @@ struct CameraInfo {
+      */
+     int facing;
+ 
++    int mode;
+     /**
+      * The orientation of the camera image. The value is the angle that the
+      * camera image needs to be rotated clockwise so it shows correctly on
+@@ -183,7 +189,7 @@ public:
+     static  int32_t     getNumberOfCameras();
+     static  status_t    getCameraInfo(int cameraId,
+                                       struct CameraInfo* cameraInfo);
+-    static  sp<Camera>  connect(int cameraId);
++    static  sp<Camera>  connect(int cameraId, int mode=CAMERA_SUPPORT_MODE_2D);
+                         ~Camera();
+             void        init();
+ 
+diff --git a/include/camera/CameraHardwareInterface.h b/include/camera/CameraHardwareInterface.h
+index b6e8bf1..109ed51 100644
+--- a/include/camera/CameraHardwareInterface.h
++++ b/include/camera/CameraHardwareInterface.h
+@@ -248,7 +248,7 @@ public:
+ extern "C" int HAL_getNumberOfCameras();
+ extern "C" void HAL_getCameraInfo(int cameraId, struct CameraInfo* cameraInfo);
+ /* HAL should return NULL if it fails to open camera hardware. */
+-extern "C" sp<CameraHardwareInterface> HAL_openCameraHardware(int cameraId);
++extern "C" sp<CameraHardwareInterface> HAL_openCameraHardware(int cameraId, int mode);
+ 
+ };  // namespace android
+ 
+diff --git a/include/camera/ICameraService.h b/include/camera/ICameraService.h
+index 7d70c1e..bc3ff82 100644
+--- a/include/camera/ICameraService.h
++++ b/include/camera/ICameraService.h
+@@ -42,7 +42,7 @@ public:
+     virtual status_t        getCameraInfo(int cameraId,
+                                           struct CameraInfo* cameraInfo) = 0;
+     virtual sp<ICamera>     connect(const sp<ICameraClient>& cameraClient,
+-                                    int cameraId) = 0;
++                                    int cameraId, int mode) = 0;
+ };
+ 
+ // ----------------------------------------------------------------------------
+diff --git a/libs/camera/Camera.cpp b/libs/camera/Camera.cpp
+index 432565e..4e238d3 100644
+--- a/libs/camera/Camera.cpp
++++ b/libs/camera/Camera.cpp
+@@ -115,13 +115,13 @@ status_t Camera::getCameraInfo(int cameraId,
+     return cs->getCameraInfo(cameraId, cameraInfo);
+ }
+ 
+-sp<Camera> Camera::connect(int cameraId)
++sp<Camera> Camera::connect(int cameraId, int mode)
+ {
+     LOGV("connect");
+     sp<Camera> c = new Camera();
+     const sp<ICameraService>& cs = getCameraService();
+     if (cs != 0) {
+-        c->mCamera = cs->connect(c, cameraId);
++        c->mCamera = cs->connect(c, cameraId, mode);
+     }
+     if (c->mCamera != 0) {
+         c->mCamera->asBinder()->linkToDeath(c);
+diff --git a/libs/camera/ICameraService.cpp b/libs/camera/ICameraService.cpp
+index 85f1a29..616785f 100644
+--- a/libs/camera/ICameraService.cpp
++++ b/libs/camera/ICameraService.cpp
+@@ -51,17 +51,19 @@ public:
+         data.writeInt32(cameraId);
+         remote()->transact(BnCameraService::GET_CAMERA_INFO, data, &reply);
+         cameraInfo->facing = reply.readInt32();
++        cameraInfo->mode = reply.readInt32();
+         cameraInfo->orientation = reply.readInt32();
+         return reply.readInt32();
+     }
+ 
+     // connect to camera service
+-    virtual sp<ICamera> connect(const sp<ICameraClient>& cameraClient, int cameraId)
++    virtual sp<ICamera> connect(const sp<ICameraClient>& cameraClient, int cameraId, int mode)
+     {
+         Parcel data, reply;
+         data.writeInterfaceToken(ICameraService::getInterfaceDescriptor());
+         data.writeStrongBinder(cameraClient->asBinder());
+         data.writeInt32(cameraId);
++        data.writeInt32(mode);
+         remote()->transact(BnCameraService::CONNECT, data, &reply);
+         return interface_cast<ICamera>(reply.readStrongBinder());
+     }
+@@ -86,6 +88,7 @@ status_t BnCameraService::onTransact(
+             memset(&cameraInfo, 0, sizeof(cameraInfo));
+             status_t result = getCameraInfo(data.readInt32(), &cameraInfo);
+             reply->writeInt32(cameraInfo.facing);
++            reply->writeInt32(cameraInfo.mode);
+             reply->writeInt32(cameraInfo.orientation);
+             reply->writeInt32(result);
+             return NO_ERROR;
+@@ -93,7 +96,7 @@ status_t BnCameraService::onTransact(
+         case CONNECT: {
+             CHECK_INTERFACE(ICameraService, data, reply);
+             sp<ICameraClient> cameraClient = interface_cast<ICameraClient>(data.readStrongBinder());
+-            sp<ICamera> camera = connect(cameraClient, data.readInt32());
++            sp<ICamera> camera = connect(cameraClient, data.readInt32(), data.readInt32());
+             reply->writeStrongBinder(camera->asBinder());
+             return NO_ERROR;
+         } break;
+diff --git a/services/camera/libcameraservice/CameraHardwareStub.cpp b/services/camera/libcameraservice/CameraHardwareStub.cpp
+index fff8753..2697ff8 100644
+--- a/services/camera/libcameraservice/CameraHardwareStub.cpp
++++ b/services/camera/libcameraservice/CameraHardwareStub.cpp
+@@ -403,6 +403,7 @@ sp<CameraHardwareInterface> CameraHardwareStub::createInstance()
+ static CameraInfo sCameraInfo[] = {
+     {
+         CAMERA_FACING_BACK,
++        1,
+         90,  /* orientation */
+     }
+ };
+@@ -428,7 +429,7 @@ extern "C" void HAL_getCameraInfo(int cameraId, struct CameraInfo* cameraInfo)
+     memcpy(cameraInfo, &sCameraInfo[cameraId], sizeof(CameraInfo));
+ }
+ 
+-extern "C" sp<CameraHardwareInterface> HAL_openCameraHardware(int cameraId)
++extern "C" sp<CameraHardwareInterface> HAL_openCameraHardware(int cameraId, int mode)
+ {
+     return CameraHardwareStub::createInstance();
+ }
+diff --git a/services/camera/libcameraservice/CameraService.cpp b/services/camera/libcameraservice/CameraService.cpp
+index a575451..2b4277f 100644
+--- a/services/camera/libcameraservice/CameraService.cpp
++++ b/services/camera/libcameraservice/CameraService.cpp
+@@ -188,9 +188,9 @@ status_t CameraService::getCameraInfo(int cameraId,
+ }
+ 
+ sp<ICamera> CameraService::connect(
+-        const sp<ICameraClient>& cameraClient, int cameraId) {
++        const sp<ICameraClient>& cameraClient, int cameraId, int mode) {
+     int callingPid = getCallingPid();
+-    LOG1("CameraService::connect E (pid %d, id %d)", callingPid, cameraId);
++    LOG1("CameraService::connect E (pid %d, id %d mode %d)", callingPid, cameraId, mode);
+ 
+     sp<Client> client;
+     if (cameraId < 0 || cameraId >= mNumberOfCameras) {
+@@ -225,7 +225,7 @@ sp<ICamera> CameraService::connect(
+ #if defined(BOARD_USE_FROYO_LIBCAMERA) || defined(BOARD_HAVE_HTC_FFC)
+     htcCameraSwitch(cameraId);
+ #endif
+-    sp<CameraHardwareInterface> hardware = HAL_openCameraHardware(cameraId);
++    sp<CameraHardwareInterface> hardware = HAL_openCameraHardware(cameraId, mode);
+     if (hardware == NULL) {
+         LOGE("Fail to open camera hardware (id=%d)", cameraId);
+         return NULL;
+diff --git a/services/camera/libcameraservice/CameraService.h b/services/camera/libcameraservice/CameraService.h
+index 81b18b4..054ab66 100644
+--- a/services/camera/libcameraservice/CameraService.h
++++ b/services/camera/libcameraservice/CameraService.h
+@@ -56,7 +56,7 @@ public:
+     virtual int32_t     getNumberOfCameras();
+     virtual status_t    getCameraInfo(int cameraId,
+                                       struct CameraInfo* cameraInfo);
+-    virtual sp<ICamera> connect(const sp<ICameraClient>& cameraClient, int cameraId);
++    virtual sp<ICamera> connect(const sp<ICameraClient>& cameraClient, int cameraId, int mode);
+     virtual void        removeClient(const sp<ICameraClient>& cameraClient);
+     virtual sp<Client>  getClientById(int cameraId);
+ 
+-- 
+1.7.2.5
+

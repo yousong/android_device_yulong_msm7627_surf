@@ -1,0 +1,1302 @@
+--- archive-1399005377/msm7627_surf-without.txt	2014-05-02 12:36:18.136893516 +0800
++++ archive-1399005377/msm7627_surf-with.txt	2014-05-02 12:36:18.114008291 +0800
+@@ -1,78 +1,195 @@
+-/data/app/test_algorithm_host
+-/data/app/test_char_traits_host
+-/data/app/test_functional_host
+-/data/app/test_iomanip_host
+-/data/app/test_ios_base_host
+-/data/app/test_ios_pos_types_host
+-/data/app/test_iostream_host
+-/data/app/test_iterator_host
+-/data/app/test_limits_host
+-/data/app/test_list_host
+-/data/app/test_memory_host
+-/data/app/test_set_host
+-/data/app/test_sstream_host
+-/data/app/test_streambuf_host
+-/data/app/test_string_host
+-/data/app/test_type_traits_host
+-/data/app/test_uninitialized_host
+-/data/app/test_vector_host
++/data/data_test/dfa_test_1
++/data/data_test/dfa_test_2
++/data/data_test/dfa_test_3
++/data/data_test/dfa_test_4
++/data/data_test/dfa_test_5
++/data/data_test/dfa_test_6
++/data/hostapd/hostapd.accept
++/data/hostapd/hostapd.conf
++/data/hostapd/hostapd.deny
++/data/hostapd/qcom_cfg.ini
++/data/rpc-tests/ping_apps_client_test_0000
+ /system/app/AccountAndSyncSettings.apk
++/system/app/AccountAndSyncSettings.odex
++/system/app/AndroidWallpaper.apk
++/system/app/AndroidWallpaper.odex
+ /system/app/ApplicationsProvider.apk
+-/system/app/Bluetooth.apk
+-/system/app/Browser.apk
+-/system/app/Calculator.apk
+-/system/app/Calendar.apk
+-/system/app/CalendarProvider.apk
+-/system/app/Camera.apk
++/system/app/ApplicationsProvider.odex
+ /system/app/CertInstaller.apk
++/system/app/CertInstaller.odex
+ /system/app/Contacts.apk
+-/system/app/ContactsProvider.apk
++/system/app/Contacts.odex
++/system/app/CP_Adscription.apk
++/system/app/CP_Adscription.odex
++/system/app/CP_Againstguard.apk
++/system/app/CP_Againstguard.odex
++/system/app/CP_AlarmClock.apk
++/system/app/CP_AlarmClock.odex
++/system/app/CP_AudioElectric.apk
++/system/app/CP_AudioElectric.odex
++/system/app/CP_Bluetooth.apk
++/system/app/CP_Bluetooth.odex
++/system/app/CP_BluetoothSetting.apk
++/system/app/CP_BluetoothSetting.odex
++/system/app/CP_BrowserUI.apk
++/system/app/CP_BrowserUI.odex
++/system/app/CP_Calculator.apk
++/system/app/CP_Calculator.odex
++/system/app/CP_CalendarProvider.apk
++/system/app/CP_CalendarProvider.odex
++/system/app/CP_CalendarUI.apk
++/system/app/CP_CalendarUI.odex
++/system/app/CP_CallRecord.apk
++/system/app/CP_CallRecord.odex
++/system/app/CP_Camera.apk
++/system/app/CP_Camera.odex
++/system/app/CP_ContactsProvider.apk
++/system/app/CP_ContactsProvider.odex
++/system/app/CP_ContextMode.apk
++/system/app/CP_ContextMode.odex
++/system/app/CP_CoolMap.apk
++/system/app/CP_CoolMap.odex
++/system/app/CP_CoolMart.apk
++/system/app/CP_CoolMart.odex
++/system/app/CP_Cooperation.apk
++/system/app/CP_Cooperation.odex
++/system/app/CP_Dial.apk
++/system/app/CP_Dial.odex
++/system/app/CP_DownloadProvider.apk
++/system/app/CP_DownloadProvider.odex
++/system/app/CP_Email.apk
++/system/app/CP_Email.odex
++/system/app/CP_EngMode.apk
++/system/app/CP_EngMode.odex
++/system/app/CP_eStore.apk
++/system/app/CP_eStore.odex
++/system/app/CP_FactoryPattern.apk
++/system/app/CP_FactoryPattern.odex
++/system/app/CP_FileBrowser.apk
++/system/app/CP_FileBrowser.odex
++/system/app/CP_Gallery3D.apk
++/system/app/CP_Gallery3D.odex
++/system/app/CP_GPSJavaTest.apk
++/system/app/CP_GPSJavaTest.odex
++/system/app/CP_IME.apk
++/system/app/CP_IME.odex
++/system/app/CP_Kavass.apk
++/system/app/CP_Kavass.odex
++/system/app/CP_Launcher2.apk
++/system/app/CP_Launcher2.odex
++/system/app/CP_LogToFile.apk
++/system/app/CP_LogToFile.odex
++/system/app/CP_MediaLibrary.apk
++/system/app/CP_MediaLibrary.odex
++/system/app/CP_Memo.apk
++/system/app/CP_Memo.odex
++/system/app/CP_Mms.apk
++/system/app/CP_Mms.odex
++/system/app/CP_ModeSetting.apk
++/system/app/CP_ModeSetting.odex
++/system/app/CP_NetUserMgr.apk
++/system/app/CP_OTA.apk
++/system/app/CP_OTA.odex
++/system/app/CP_PackageInstaller.apk
++/system/app/CP_PackageInstaller.odex
++/system/app/CP_Player.apk
++/system/app/CP_Player.odex
++/system/app/CP_QuickDial.apk
++/system/app/CP_QuickDial.odex
++/system/app/CP_SDBackup.apk
++/system/app/CP_SDBackup.odex
++/system/app/CP_SecurityMgr.apk
++/system/app/CP_SecurityMgr.odex
++/system/app/CP_SnsContactsUI.apk
++/system/app/CP_SnsContactsUI.odex
++/system/app/CP_SoundRecord.apk
++/system/app/CP_SoundRecord.odex
++/system/app/CP_Stock.apk
++/system/app/CP_Stock.odex
++/system/app/CP_SwitchNet.apk
++/system/app/CP_SwitchNet.odex
++/system/app/CP_SysSetting.apk
++/system/app/CP_SysSetting.odex
++/system/app/CP_TaskMgr.apk
++/system/app/CP_TaskMgr.odex
++/system/app/CP_TelecomService.apk
++/system/app/CP_TelecomService.odex
++/system/app/CP_UTK.apk
++/system/app/CP_UTK.odex
++/system/app/CP_VideoPlayer.apk
++/system/app/CP_VideoPlayer.odex
++/system/app/CP_WifiCertService.apk
++/system/app/CP_WifiCertService.odex
++/system/app/CP_WiFiSetting.apk
++/system/app/CP_WiFiSetting.odex
++/system/app/CP_WorldClock.apk
++/system/app/CP_WorldClock.odex
++/system/app/CP_YulongSettings.apk
++/system/app/CP_YulongSettings.odex
+ /system/app/DefaultContainerService.apk
+-/system/app/DeskClock.apk
+-/system/app/Development.apk
+-/system/app/DownloadProvider.apk
+-/system/app/DownloadProviderUi.apk
++/system/app/DefaultContainerService.odex
+ /system/app/DrmProvider.apk
+-/system/app/Email.apk
+-/system/app/Gallery3D.apk
+-/system/app/HTMLViewer.apk
+-/system/app/LatinIME.apk
+-/system/app/Launcher2.apk
++/system/app/DrmProvider.odex
++/system/app/IcmNewBerry.apk
++/system/app/IcmWeather.apk
++/system/app/LiveWallpapersPicker.apk
++/system/app/LiveWallpapersPicker.odex
+ /system/app/MediaProvider.apk
+-/system/app/Mms.apk
+-/system/app/Music.apk
+-/system/app/PackageInstaller.apk
++/system/app/MediaProvider.odex
++/system/app/OmaDownloadProvider.apk
++/system/app/OmaDrmProvider.apk
+ /system/app/Phone.apk
+-/system/app/PicoTts.apk
+-/system/app/Protips.apk
++/system/app/Phone.odex
++/system/app/PrivInit.apk
++/system/app/PrivInit.odex
+ /system/app/Provision.apk
++/system/app/Provision.odex
++/system/app/Qieke.apk
++/system/app/QQ.apk
++/system/app/QQBrowser.apk
+ /system/app/QuickSearchBox.apk
+-/system/app/Settings.apk
++/system/app/QuickSearchBox.odex
+ /system/app/SettingsProvider.apk
+-/system/app/SoundRecorder.apk
+-/system/app/SpareParts.apk
+-/system/app/Superuser.apk
++/system/app/SettingsProvider.odex
++/system/app/sinaweibo.apk
++/system/app/SohuNewsClient.apk
++/system/app/Stock_trade.apk
+ /system/app/SystemUI.apk
++/system/app/SystemUI.odex
+ /system/app/TelephonyProvider.apk
+-/system/app/Term.apk
++/system/app/TelephonyProvider.odex
+ /system/app/TtsService.apk
++/system/app/TtsService.odex
+ /system/app/UserDictionaryProvider.apk
+-/system/app/VoiceDialer.apk
++/system/app/UserDictionaryProvider.odex
+ /system/app/VpnServices.apk
++/system/app/VpnServices.odex
++/system/app/Wiper.apk
++/system/app/Wiper.odex
++/system/app/XY_CP_Ebook.apk
++/system/app/XY_CP_Ebook.odex
++/system/bin/akmd8975
+ /system/bin/am
++/system/bin/amploader
+ /system/bin/applypatch
+-/system/bin/applypatch_static
+ /system/bin/app_process
+-/system/bin/audioloop
+-/system/bin/badblocks
++/system/bin/ast-mm-vdec-omx-test7k
++/system/bin/ATFWD-daemon
++/system/bin/audioelectric
++/system/bin/autodownload
++/system/bin/battery_charging
+ /system/bin/bluetoothd
+ /system/bin/bmgr
+ /system/bin/bootanimation
++/system/bin/bridgemgrd
++/system/bin/btwlancoex
+ /system/bin/bugreport
++/system/bin/busybox
+ /system/bin/cat
+-/system/bin/check_prereq
++/system/bin/ccid_daemon
+ /system/bin/chmod
+ /system/bin/chown
++/system/bin/CKPD-daemon
+ /system/bin/cmp
+ /system/bin/dalvikvm
+ /system/bin/date
+@@ -84,52 +201,78 @@
+ /system/bin/dhcpcd
+ /system/bin/dmesg
+ /system/bin/dnsmasq
+-/system/bin/dump_image
++/system/bin/DrmHost
++/system/bin/ds_fmc_appd
+ /system/bin/dumpstate
+ /system/bin/dumpsys
++/system/bin/dun-server
+ /system/bin/dvz
+-/system/bin/e2fsck
+-/system/bin/e2label
+-/system/bin/erase_image
+-/system/bin/flash_image
++/system/bin/fmconfig
+ /system/bin/fsck_msdos
+-/system/bin/gdbjithelper
+-/system/bin/gdbserver
++/system/bin/ftmdaemon
+ /system/bin/getevent
+ /system/bin/getprop
+ /system/bin/gzip
+ /system/bin/hciattach
++/system/bin/hci_qcomm_init
+ /system/bin/hd
++/system/bin/hlr_auc_gw
++/system/bin/hostapd
++/system/bin/hostapd_cli
+ /system/bin/id
+ /system/bin/ifconfig
+ /system/bin/iftop
+ /system/bin/ime
+ /system/bin/input
+-/system/bin/InputChannel_test
+-/system/bin/InputDispatcher_test
+-/system/bin/InputPublisherAndConsumer_test
+-/system/bin/InputReader_test
+ /system/bin/insmod
+ /system/bin/installd
+ /system/bin/ioctl
+ /system/bin/ionice
++/system/bin/ip
+ /system/bin/iptables
+ /system/bin/keystore
+-/system/bin/keystore_cli
+ /system/bin/kill
+ /system/bin/linker
+ /system/bin/ln
++/system/bin/loc_api_app
+ /system/bin/log
+ /system/bin/logcat
++/system/bin/logredirect
+ /system/bin/logwrapper
+-/system/bin/Looper_test
+ /system/bin/ls
+ /system/bin/lsmod
+ /system/bin/lsof
+ /system/bin/mediaserver
+ /system/bin/mkdir
+-/system/bin/mke2fs
+-/system/bin/mkyaffs2image
++/system/bin/mm-abl-test
++/system/bin/mm-adec-omxaac-test
++/system/bin/mm-adec-omxadpcm-test
++/system/bin/mm-adec-omxamr-test
++/system/bin/mm-adec-omxamrwb-test
++/system/bin/mm-adec-omxevrc-hw-test
++/system/bin/mm-adec-omxevrc-test
++/system/bin/mm-adec-omxmp3-test
++/system/bin/mm-adec-omxQcelp13-test
++/system/bin/mm-adec-omxQcelpHw-test
++/system/bin/mm-adec-omxvam-test
++/system/bin/mm-adec-omxwma-test
++/system/bin/mm-adspsvc-test
++/system/bin/mm-aenc-omxaac-test
++/system/bin/mm-aenc-omxamr-test
++/system/bin/mm-aenc-omxevrc-test
++/system/bin/mm-aenc-omxqcelp13-test
++/system/bin/mm-audio-alsa-test
++/system/bin/mm-audio-ctrl-test
++/system/bin/mm-audio-mvs-test
++/system/bin/mm-audio-native-test
++/system/bin/mm-jpeg-dec-test
++/system/bin/mm-jpeg-enc-test
++/system/bin/mm-qcamera-daemon
++/system/bin/mm-qcamera-test
++/system/bin/mm-qcamera-testsuite-client
++/system/bin/mm-vdec-omx-test
++/system/bin/mm-venc-omx-test
++/system/bin/modemdownload
+ /system/bin/monkey
+ /system/bin/mount
+ /system/bin/mtpd
+@@ -138,32 +281,36 @@
+ /system/bin/ndc
+ /system/bin/netcfg
+ /system/bin/netd
++/system/bin/netmgrd
+ /system/bin/netstat
+ /system/bin/newfs_msdos
++/system/bin/nl_listener
+ /system/bin/notify
+-/system/bin/ObbFile_test
++/system/bin/nt_password_hash
+ /system/bin/omx_tests
+ /system/bin/pand
+ /system/bin/ping
+ /system/bin/pm
++/system/bin/port-bridge
+ /system/bin/pppd
++/system/bin/pppd-ril
+ /system/bin/printenv
+ /system/bin/ps
+-/system/bin/qemud
+-/system/bin/qemu-props
++/system/bin/ptt_socket_app
++/system/bin/qmiproxy
++/system/bin/qmuxd
++/system/bin/qrngd
++/system/bin/qrngtest
+ /system/bin/racoon
+-/system/bin/radiooptions
++/system/bin/radish
+ /system/bin/reboot
+-/system/bin/record
+-/system/bin/recovery
+ /system/bin/renice
+-/system/bin/resize2fs
+ /system/bin/rild
+ /system/bin/rm
+ /system/bin/rmdir
+ /system/bin/rmmod
++/system/bin/rmt_storage
+ /system/bin/route
+-/system/bin/rtp_test
+ /system/bin/run-as
+ /system/bin/schedtest
+ /system/bin/schedtop
+@@ -175,95 +322,117 @@
+ /system/bin/setconsole
+ /system/bin/setprop
+ /system/bin/sh
+-/system/bin/showlease
+-/system/bin/skia_test
++/system/bin/shutanimation
+ /system/bin/sleep
+ /system/bin/smd
+-/system/bin/stagefright
+ /system/bin/start
+ /system/bin/stop
+-/system/bin/String8_test
+ /system/bin/surfaceflinger
+ /system/bin/svc
+ /system/bin/sync
+ /system/bin/system_server
+ /system/bin/tc
+-/system/bin/testid3
++/system/bin/test
+ /system/bin/toolbox
+ /system/bin/top
+-/system/bin/tune2fs
+ /system/bin/umount
+-/system/bin/unyaffs
+-/system/bin/updater
+ /system/bin/uptime
++/system/bin/usbhub
++/system/bin/usbhub_init
++/system/bin/uwservice
++/system/bin/v4l2-qcamera-app
+ /system/bin/vdc
+ /system/bin/vmstat
+ /system/bin/vold
++/system/bin/watchdogd
+ /system/bin/watchprops
+ /system/bin/wipe
++/system/bin/wiperiface
+ /system/bin/wpa_cli
+ /system/bin/wpa_supplicant
++/system/bin/write_mac
+ /system/build.prop
++/system/etc/01_qcomm_omx.cfg
+ /system/etc/apns-conf.xml
+-/system/etc/bash/bash_logout
+-/system/etc/bash/bashrc
++/system/etc/AudioFilter.csv
+ /system/etc/bluetooth/audio.conf
+ /system/etc/bluetooth/auto_pairing.conf
+ /system/etc/bluetooth/blacklist.conf
+ /system/etc/bluetooth/input.conf
+ /system/etc/bluetooth/main.conf
+-/system/etc/CM-NOTICE.html.gz
+ /system/etc/dbus.conf
++/system/etc/dhcpcd/dhcpcd.conf
+ /system/etc/dhcpcd/dhcpcd-hooks/20-dns.conf
+ /system/etc/dhcpcd/dhcpcd-hooks/95-configured
+ /system/etc/dhcpcd/dhcpcd-run-hooks
+ /system/etc/event-log-tags
++/system/etc/firmware/wlan/cfg.dat
++/system/etc/firmware/wlan/qcom_cfg.ini
++/system/etc/firmware/wlan/qcom_fw.bin
++/system/etc/firmware/wlan/qcom_wapi_fw.bin
++/system/etc/firmware/yamato_pfp.fw
++/system/etc/firmware/yamato_pm4.fw
+ /system/etc/gps.conf
+ /system/etc/hosts
+ /system/etc/init.goldfish.sh
+ /system/etc/init.qcom.bt.sh
+ /system/etc/init.qcom.coex.sh
++/system/etc/init.qcom.fm.sh
+ /system/etc/init.qcom.post_boot.sh
++/system/etc/init.qcom.sdio.sh
+ /system/etc/init.qcom.wifi.sh
+-/system/etc/mke2fs.conf
+-/system/etc/nano/asm.nanorc
+-/system/etc/nano/awk.nanorc
+-/system/etc/nano/cmake.nanorc
+-/system/etc/nano/c.nanorc
+-/system/etc/nano/css.nanorc
+-/system/etc/nano/fortran.nanorc
+-/system/etc/nano/groff.nanorc
+-/system/etc/nano/html.nanorc
+-/system/etc/nano/java.nanorc
+-/system/etc/nano/makefile.nanorc
+-/system/etc/nano/nanorc
+-/system/etc/nano/nanorc.nanorc
+-/system/etc/nano/objc.nanorc
+-/system/etc/nano/ocaml.nanorc
+-/system/etc/nano/patch.nanorc
+-/system/etc/nano/perl.nanorc
+-/system/etc/nano/php.nanorc
+-/system/etc/nano/python.nanorc
+-/system/etc/nano/ruby.nanorc
+-/system/etc/nano/sh.nanorc
+-/system/etc/nano/tcl.nanorc
+-/system/etc/nano/tex.nanorc
+-/system/etc/nano/xml.nanorc
++/system/etc/ip-number.xml
++/system/etc/loc_parameter.ini
++/system/etc/LsOmaClientSettings.xml
++/system/etc/mms_config.xml
+ /system/etc/NOTICE.html.gz
++/system/etc/OperatorPolicy.xml
++/system/etc/permissions/android.hardware.bluetooth.xml
++/system/etc/permissions/android.hardware.camera.xml
++/system/etc/permissions/android.hardware.location.gps.xml
++/system/etc/permissions/android.hardware.location.xml
++/system/etc/permissions/android.hardware.microphone.xml
++/system/etc/permissions/android.hardware.sensor.accelerometer.xml
++/system/etc/permissions/android.hardware.sensor.light.xml
++/system/etc/permissions/android.hardware.sensor.proximity.xml
++/system/etc/permissions/android.hardware.telephony.cdma.xml
++/system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml
++/system/etc/permissions/android.hardware.touchscreen.multitouch.xml
++/system/etc/permissions/android.hardware.touchscreen.xml
++/system/etc/permissions/android.hardware.wifi.xml
++/system/etc/permissions/android.software.live_wallpaper.xml
++/system/etc/permissions/android.software.sip.voip.xml
++/system/etc/permissions/android.software.sip.xml
+ /system/etc/permissions/com.android.location.provider.xml
++/system/etc/permissions/com.google.android.maps.xml
++/system/etc/permissions/com.qualcomm.location.vzw_library.xml
++/system/etc/permissions/CP_Common.xml
++/system/etc/permissions/OmaDrmClient.xml
+ /system/etc/permissions/platform.xml
+ /system/etc/ppp/ip-up-vpn
++/system/etc/pvplayer.cfg
+ /system/etc/security/cacerts.bks
+ /system/etc/security/otacerts.zip
+-/system/etc/vold.conf
++/system/etc/sms-conf.xml
++/system/etc/spn-conf-0.xml
++/system/etc/spn-conf-1.xml
++/system/etc/spn-conf-2.xml
++/system/etc/spn-conf-3.xml
++/system/etc/spn-conf.xml
++/system/etc/udisk_rm.sh
++/system/etc/usb_cdrom/COOLPAD_N950.ISO
++/system/etc/UserPolicy.xml
+ /system/etc/vold.fstab
++/system/etc/wifi_ftm_close.sh
++/system/etc/wifi_ftm.sh
++/system/etc/wifi/runbip.sh
+ /system/etc/wifi/wpa_supplicant.conf
++/system/etc/wiperconfig.xml
+ /system/fonts/Clockopia.ttf
+ /system/fonts/DroidSansArabic.ttf
+ /system/fonts/DroidSans-Bold.ttf
+ /system/fonts/DroidSansFallback.ttf
+ /system/fonts/DroidSansHebrew.ttf
+-/system/fonts/DroidSansJapanese.ttf
+ /system/fonts/DroidSansMono.ttf
+ /system/fonts/DroidSansThai.ttf
+ /system/fonts/DroidSans.ttf
+@@ -272,59 +441,162 @@
+ /system/fonts/DroidSerif-Italic.ttf
+ /system/fonts/DroidSerif-Regular.ttf
+ /system/framework/am.jar
++/system/framework/am.odex
+ /system/framework/android.policy.jar
++/system/framework/android.policy.odex
+ /system/framework/android.test.runner.jar
++/system/framework/android.test.runner.odex
++/system/framework/audioelectric.jar
++/system/framework/audioelectric.odex
+ /system/framework/bmgr.jar
++/system/framework/bmgr.odex
+ /system/framework/bouncycastle.jar
++/system/framework/bouncycastle.odex
+ /system/framework/com.android.location.provider.jar
++/system/framework/com.android.location.provider.odex
++/system/framework/com.google.android.maps.jar
++/system/framework/com.qualcomm.location.vzw_library.jar
++/system/framework/com.qualcomm.location.vzw_library.odex
+ /system/framework/core.jar
+ /system/framework/core-junit.jar
++/system/framework/core-junit.odex
++/system/framework/core.odex
++/system/framework/CP_CommonDex.jar
++/system/framework/CP_CommonDex.odex
++/system/framework/CP_Common-res.apk
++/system/framework/CP_NetUserMgrDex.jar
+ /system/framework/ext.jar
++/system/framework/ext.odex
+ /system/framework/framework.jar
++/system/framework/framework.odex
+ /system/framework/framework-res.apk
+ /system/framework/ime.jar
++/system/framework/ime.odex
+ /system/framework/input.jar
++/system/framework/input.odex
+ /system/framework/javax.obex.jar
++/system/framework/javax.obex.odex
++/system/framework/MmsInterface.jar
+ /system/framework/monkey.jar
++/system/framework/monkey.odex
++/system/framework/OmaDrmClient.jar
++/system/framework/OmaDrmClient.odex
+ /system/framework/pm.jar
++/system/framework/pm.odex
+ /system/framework/services.jar
++/system/framework/services.odex
++/system/framework/Sms_Filter.jar
+ /system/framework/sqlite-jdbc.jar
++/system/framework/sqlite-jdbc.odex
+ /system/framework/svc.jar
++/system/framework/svc.odex
+ /system/lib/bluez-plugin/audio.so
+ /system/lib/bluez-plugin/input.so
++/system/lib/CHM_Unicode_LittleEndian.dic
+ /system/lib/egl/egl.cfg
++/system/lib/egl/eglsubAndroid.so
++/system/lib/egl/libEGL_adreno200.so
+ /system/lib/egl/libGLES_android.so
+-/system/lib/hw/gps.goldfish.so
++/system/lib/egl/libGLESv1_CM_adreno200.so
++/system/lib/egl/libGLESv2_adreno200.so
++/system/lib/egl/libq3dtools_adreno200.so
++/system/lib/hw/copybit.msm7k.so
++/system/lib/hw/gps.default.so
+ /system/lib/hw/gralloc.default.so
+-/system/lib/hw/sensors.goldfish.so
+-/system/lib/invoke_mock_media_player.so
++/system/lib/hw/gralloc.msm7k.so
++/system/lib/hw/lights.msm7k.so
++/system/lib/hw/sensors.qcom.so
++/system/lib/launcher2.db
+ /system/lib/liba2dp.so
+ /system/lib/libacc.so
+ /system/lib/libandroid_runtime.so
+ /system/lib/libandroid_servers.so
+ /system/lib/libandroid.so
++/system/lib/libaudioalsa.so
+ /system/lib/libaudioeffect_jni.so
++/system/lib/libaudioeq.so
+ /system/lib/libaudioflinger.so
+ /system/lib/libaudiopolicy.so
+ /system/lib/libaudio.so
++/system/lib/libauth.so
+ /system/lib/libbinder.so
+ /system/lib/libbluedroid.so
+ /system/lib/libbluetoothd.so
+ /system/lib/libbluetooth.so
++/system/lib/libbttest.so
+ /system/lib/libcamera_client.so
+ /system/lib/libcameraservice.so
+ /system/lib/libcamera.so
+-/system/lib/libc_malloc_debug_leak.so
+-/system/lib/libc_malloc_debug_qemu.so
++/system/lib/libcdmaapi.so
++/system/lib/libcm.so
++/system/lib/libcneapiclient.so
++/system/lib/libcne.so
++/system/lib/libcneutils.so
++/system/lib/libcommondefs.so
++/system/lib/libCommon.so
++/system/lib/libcoolpadversion.so
++/system/lib/libCP_CoolMap_LCM.so
++/system/lib/libCP_c.so
++/system/lib/libCP_JNI_Adscription.so
++/system/lib/libCP_JNI_ContactsProvider.so
++/system/lib/libCP_JNI_Contacts.so
++/system/lib/libCP_jni_Coolmart.so
++/system/lib/libCP_jni_EngMode.so
++/system/lib/libCP_jni_NetUsermgr.so
++/system/lib/libCP_jni_Stock.so
++/system/lib/libCP_Localize.so
++/system/lib/libCPOpenglLib.so
+ /system/lib/libcrypto.so
+ /system/lib/libc.so
+ /system/lib/libctest.so
+ /system/lib/libcutils.so
+ /system/lib/libdbus.so
++/system/lib/libdiag.so
++/system/lib/libdial.so
+ /system/lib/libdiskconfig.so
++/system/lib/libdivxdrmdecrypt.so
+ /system/lib/libdl.so
+ /system/lib/libdrm1_jni.so
+ /system/lib/libdrm1.so
++/system/lib/libDrmStrings.so.cs.UTF-8
++/system/lib/libDrmStrings.so.da.UTF-8
++/system/lib/libDrmStrings.so.de.UTF-8
++/system/lib/libDrmStrings.so.el.UTF-8
++/system/lib/libDrmStrings.so.en_UK.UTF-8
++/system/lib/libDrmStrings.so.en_US.UTF-8
++/system/lib/libDrmStrings.so.es_CO.UTF-8
++/system/lib/libDrmStrings.so.es.UTF-8
++/system/lib/libDrmStrings.so.fi.UTF-8
++/system/lib/libDrmStrings.so.fr_CA.UTF-8
++/system/lib/libDrmStrings.so.fr.UTF-8
++/system/lib/libDrmStrings.so.he.UTF-8
++/system/lib/libDrmStrings.so.hr.UTF-8
++/system/lib/libDrmStrings.so.hu.UTF-8
++/system/lib/libDrmStrings.so.it.UTF-8
++/system/lib/libDrmStrings.so.ja.UTF-8
++/system/lib/libDrmStrings.so.ko.UTF-8
++/system/lib/libDrmStrings.so.nb.UTF-8
++/system/lib/libDrmStrings.so.nl.UTF-8
++/system/lib/libDrmStrings.so.pl.UTF-8
++/system/lib/libDrmStrings.so.pt_BR.UTF-8
++/system/lib/libDrmStrings.so.pt.UTF-8
++/system/lib/libDrmStrings.so.ro.UTF-8
++/system/lib/libDrmStrings.so.ru.UTF-8
++/system/lib/libDrmStrings.so.sk.UTF-8
++/system/lib/libDrmStrings.so.sv.UTF-8
++/system/lib/libDrmStrings.so.th.UTF-8
++/system/lib/libDrmStrings.so.tr.UTF-8
++/system/lib/libDrmStrings.so.uk.UTF-8
++/system/lib/libDrmStrings.so.vi_VN.UTF-8
++/system/lib/libDrmStrings.so.zh_CN.UTF-8
++/system/lib/libDrmStrings.so.zh_TW.UTF-8
++/system/lib/libdsi_netctrl.so
++/system/lib/libdsm.so
++/system/lib/libdsnet.so
++/system/lib/libdsprofile.so
++/system/lib/libdssock.so
++/system/lib/libdss.so
++/system/lib/libdsutils.so
+ /system/lib/libdvm.so
+ /system/lib/libeffects.so
+ /system/lib/libEGL.so
+@@ -332,45 +604,134 @@
+ /system/lib/libETC1.so
+ /system/lib/libexif.so
+ /system/lib/libexpat.so
+-/system/lib/libext2_blkid.so
+-/system/lib/libext2_com_err.so
+-/system/lib/libext2_e2p.so
+-/system/lib/libext2fs.so
+-/system/lib/libext2_profile.so
+-/system/lib/libext2_uuid.so
+ /system/lib/libFFTEm.so
+-/system/lib/libFLAC.so
++/system/lib/libGifPlayerJNI.so
+ /system/lib/libGLESv1_CM.so
+ /system/lib/libGLESv2.so
++/system/lib/libgps.so
++/system/lib/libgsdi_exp.so
++/system/lib/libgsl.so
++/system/lib/libgstk_exp.so
+ /system/lib/libgui.so
+ /system/lib/libhardware_legacy.so
+ /system/lib/libhardware.so
++/system/lib/libIcm_Weather-Mobile.so
+ /system/lib/libicui18n.so
+ /system/lib/libicuuc.so
++/system/lib/libidl.so
+ /system/lib/libiprouteutil.so
+ /system/lib/libjnigraphics.so
+-/system/lib/libjni_latinime.so
++/system/lib/libjni_inputengine.so
++/system/lib/libjni_pinyinime.so
+ /system/lib/libjpeg.so
++/system/lib/liblasic.so
++/system/lib/libloc_api-rpc-qc.so
++/system/lib/libloc_ext.so
+ /system/lib/liblog.so
++/system/lib/libLsOmaClient.so
++/system/lib/libLsOmaCore.so
++/system/lib/libLsOmaUi_Android.so
++/system/lib/libmag.so
+ /system/lib/libmedia_jni.so
+ /system/lib/libmediaplayerservice.so
+ /system/lib/libmedia.so
++/system/lib/libmicrophonecheck.so
++/system/lib/libmm-abl.so
++/system/lib/libmm-adspsvc.so
++/system/lib/libmmgsdilib.so
++/system/lib/libmmipl.so
++/system/lib/libmmjpeg.so
++/system/lib/libmm-omxcore.so
++/system/lib/libmmosal.so
++/system/lib/libmmparser_divxdrmlib.so
++/system/lib/libmmparser.so
+ /system/lib/libm.so
++/system/lib/libmvs.so
+ /system/lib/libnativehelper.so
+-/system/lib/libncurses.so
+ /system/lib/libnetlink.so
++/system/lib/libnetmgr.so
+ /system/lib/libnetutils.so
+ /system/lib/libnfc_ndef.so
++/system/lib/libnv.so
++/system/lib/liboemcamera.so
++/system/lib/liboem_rapi.so
++/system/lib/liboem.so
++/system/lib/libomacurl.so
++/system/lib/libomx_aacdec_sharedlibrary.so
++/system/lib/libOmxAacDec.so
++/system/lib/libOmxAacEnc.so
++/system/lib/libOmxAdpcmDec.so
++/system/lib/libomx_amrdec_sharedlibrary.so
++/system/lib/libOmxAmrDec.so
++/system/lib/libomx_amrenc_sharedlibrary.so
++/system/lib/libOmxAmrEnc.so
++/system/lib/libOmxAmrRtpDec.so
++/system/lib/libOmxAmrwbDec.so
++/system/lib/libomx_avcdec_sharedlibrary.so
++/system/lib/libOmxCore.so
++/system/lib/libOmxEvrcDec.so
++/system/lib/libOmxEvrcEnc.so
++/system/lib/libOmxEvrcHwDec.so
++/system/lib/libOmxH264Dec.so
++/system/lib/libomx_m4vdec_sharedlibrary.so
++/system/lib/libomx_mp3dec_sharedlibrary.so
++/system/lib/libOmxMp3Dec.so
++/system/lib/libOmxMpeg4Dec.so
++/system/lib/libOmxOn2Dec.so
++/system/lib/libOmxQcelp13Dec.so
++/system/lib/libOmxQcelp13Enc.so
++/system/lib/libOmxQcelpHwDec.so
++/system/lib/libOmxrv9Dec.so
++/system/lib/libomx_sharedlibrary.so
++/system/lib/libOmxVidEnc.so
++/system/lib/libOmxWmaDec.so
++/system/lib/libOmxWmvDec.so
++/system/lib/liboncrpc.so
++/system/lib/libopencore_author.so
++/system/lib/libopencore_common.so
++/system/lib/libopencore_downloadreg.so
++/system/lib/libopencore_download.so
++/system/lib/libopencorehw.so
++/system/lib/libopencore_mp4localreg.so
++/system/lib/libopencore_mp4local.so
++/system/lib/libopencore_net_support.so
++/system/lib/libopencore_player.so
++/system/lib/libopencore_rtspreg.so
++/system/lib/libopencore_rtsp.so
+ /system/lib/libOpenSLES.so
+-/system/lib/libpagemap.so
++/system/lib/libOpenVG.so
++/system/lib/libosip2.so
++/system/lib/libpbmlib.so
++/system/lib/libpdapi.so
++/system/lib/libpdsm_atl.so
++/system/lib/libping_apps.so
++/system/lib/libping_mdm.so
+ /system/lib/libpixelflinger.so
++/system/lib/libpng.so
++/system/lib/lib_ppp_plugin.so
++/system/lib/libqcomm_omx.so
++/system/lib/libqc-opt.so
++/system/lib/libqdp.so
++/system/lib/libqmiservices.so
++/system/lib/libqmi.so
++/system/lib/libqqsecure.so
++/system/lib/libqsap_sdk.so
++/system/lib/libqueue.so
++/system/lib/libQWiFiSoftApCfg.so
++/system/lib/libreference-cdma-sms.so
+ /system/lib/libreference-ril.so
++/system/lib/libril-qc-1.so
++/system/lib/libril-qcril-hook-oem.so
+ /system/lib/libril.so
+ /system/lib/librpc.so
++/system/lib/librs_jni.so
++/system/lib/libRS.so
+ /system/lib/librtp_jni.so
+ /system/lib/libsensorservice.so
++/system/lib/libsinautility.so
+ /system/lib/libskiagl.so
+ /system/lib/libskia.so
++/system/lib/libsnd.so
+ /system/lib/libsonivox.so
+ /system/lib/libsoundpool.so
+ /system/lib/libsqlite_jni.so
+@@ -392,94 +753,120 @@
+ /system/lib/libsurfaceflinger.so
+ /system/lib/libsystem_server.so
+ /system/lib/libsysutils.so
+-/system/lib/libterm.so
++/system/lib/libTdscdma_lc.so
+ /system/lib/libthread_db.so
++/system/lib/libtsjni.so
+ /system/lib/libttspico.so
+ /system/lib/libttssynthproxy.so
++/system/lib/libuim.so
+ /system/lib/libui.so
+ /system/lib/libutils.so
++/system/lib/libVideoCtrl.so
++/system/lib/libvoem_if.so
+ /system/lib/libvorbisidec.so
++/system/lib/libWeatherTTSReceiver.so
+ /system/lib/libwebcore.so
++/system/lib/libwebkitaccel.so
++/system/lib/libwiperjni.so
++/system/lib/libwms.so
++/system/lib/libwmsts.so
+ /system/lib/libwpa_client.so
++/system/lib/libxml.so
+ /system/lib/libz.so
++/system/lib/modules/ansi_cprng.ko
++/system/lib/modules/cpaccess.ko
++/system/lib/modules/dma_test.ko
++/system/lib/modules/evbug.ko
++/system/lib/modules/gspca_main.ko
++/system/lib/modules/libra/libra_ftm.ko
++/system/lib/modules/libra/libra.ko
++/system/lib/modules/librasdioif.ko
++/system/lib/modules/mtd_erasepart.ko
++/system/lib/modules/mtd_nandecctest.ko
++/system/lib/modules/mtd_oobtest.ko
++/system/lib/modules/mtd_pagetest.ko
++/system/lib/modules/mtd_readtest.ko
++/system/lib/modules/mtd_speedtest.ko
++/system/lib/modules/mtd_stresstest.ko
++/system/lib/modules/mtd_subpagetest.ko
++/system/lib/modules/mtd_torturetest.ko
++/system/lib/modules/oprofile.ko
++/system/lib/modules/reset_modem.ko
++/system/lib/modules/scsi_wait_scan.ko
++/system/lib/modules/wlan.ko
++/system/lib/soundfx/libbundlewrapper.so
+ /system/lib/soundfx/libreverbwrapper.so
+ /system/lib/soundfx/libvisualizer.so
+-/system/media/audio/alarms/Alarm_Beep_01.ogg
+-/system/media/audio/alarms/Alarm_Beep_02.ogg
+-/system/media/audio/alarms/Alarm_Beep_03.ogg
+-/system/media/audio/alarms/Alarm_Buzzer.ogg
+-/system/media/audio/alarms/Alarm_Classic.ogg
+-/system/media/audio/alarms/Alarm_Rooster_02.ogg
++/system/media/audio/alarms/Alarm_clock01.ogg
++/system/media/audio/alarms/Alarm_clock02.ogg
++/system/media/audio/alarms/Alarm_clock03.ogg
++/system/media/audio/alarms/Alarm_clock04.ogg
++/system/media/audio/alarms/Alarm_coolpad.ogg
+ /system/media/audio/notifications/Beat_Box_Android.ogg
+-/system/media/audio/notifications/CaffeineSnake.ogg
+-/system/media/audio/notifications/DearDeer.ogg
+-/system/media/audio/notifications/DontPanic.ogg
+ /system/media/audio/notifications/F1_MissedCall.ogg
+ /system/media/audio/notifications/F1_New_MMS.ogg
+ /system/media/audio/notifications/F1_New_SMS.ogg
+ /system/media/audio/notifications/Heaven.ogg
+-/system/media/audio/notifications/Highwire.ogg
+-/system/media/audio/notifications/KzurbSonar.ogg
+-/system/media/audio/notifications/OnTheHunt.ogg
++/system/media/audio/notifications/Message01.ogg
++/system/media/audio/notifications/Message02.ogg
++/system/media/audio/notifications/Message03.ogg
++/system/media/audio/notifications/Message04.ogg
++/system/media/audio/notifications/Message05.ogg
++/system/media/audio/notifications/Message06.ogg
++/system/media/audio/notifications/Message07.ogg
++/system/media/audio/notifications/pcConnect.ogg
+ /system/media/audio/notifications/TaDa.ogg
+ /system/media/audio/notifications/Tinkerbell.ogg
+-/system/media/audio/notifications/Voila.ogg
+-/system/media/audio/ringtones/BeatPlucker.ogg
+-/system/media/audio/ringtones/BentleyDubs.ogg
+-/system/media/audio/ringtones/BirdLoop.ogg
+-/system/media/audio/ringtones/CaribbeanIce.ogg
+-/system/media/audio/ringtones/CrazyDream.ogg
+-/system/media/audio/ringtones/CurveBall.ogg
+-/system/media/audio/ringtones/DreamTheme.ogg
+-/system/media/audio/ringtones/EtherShake.ogg
+-/system/media/audio/ringtones/FriendlyGhost.ogg
+-/system/media/audio/ringtones/GameOverGuitar.ogg
+-/system/media/audio/ringtones/Growl.ogg
+-/system/media/audio/ringtones/InsertCoin.ogg
+-/system/media/audio/ringtones/LoopyLounge.ogg
+-/system/media/audio/ringtones/LoveFlute.ogg
+-/system/media/audio/ringtones/MidEvilJaunt.ogg
+-/system/media/audio/ringtones/MildlyAlarming.ogg
+-/system/media/audio/ringtones/NewPlayer.ogg
+-/system/media/audio/ringtones/Noises1.ogg
+-/system/media/audio/ringtones/Noises2.ogg
+-/system/media/audio/ringtones/Noises3.ogg
+-/system/media/audio/ringtones/OrganDub.ogg
+-/system/media/audio/ringtones/Ring_Classic_02.ogg
+-/system/media/audio/ringtones/Ring_Digital_02.ogg
+-/system/media/audio/ringtones/Ring_Synth_02.ogg
+-/system/media/audio/ringtones/Ring_Synth_04.ogg
+-/system/media/audio/ringtones/RomancingTheTone.ogg
+-/system/media/audio/ringtones/SitarVsSitar.ogg
+-/system/media/audio/ringtones/SpringyJalopy.ogg
+-/system/media/audio/ringtones/Terminated.ogg
+-/system/media/audio/ringtones/TwirlAway.ogg
+-/system/media/audio/ringtones/VeryAlarmed.ogg
+-/system/media/audio/ringtones/World.ogg
++/system/media/audio/ringtones/Airy_fairy.ogg
++/system/media/audio/ringtones/Cityscape.ogg
++/system/media/audio/ringtones/Classical.ogg
++/system/media/audio/ringtones/Coolpad.ogg
++/system/media/audio/ringtones/Curb.ogg
++/system/media/audio/ringtones/Live_smart.ogg
++/system/media/audio/ringtones/Melody.ogg
++/system/media/audio/ringtones/Military_march.ogg
++/system/media/audio/ringtones/Music_box.ogg
++/system/media/audio/ringtones/Phone.ogg
++/system/media/audio/ringtones/Popple.ogg
++/system/media/audio/ringtones/Purity.ogg
++/system/media/audio/ringtones/Spaceless.ogg
++/system/media/audio/ringtones/Touch.ogg
++/system/media/audio/ringtones/Twitter.ogg
++/system/media/audio/ringtones/What_can_you_do.ogg
+ /system/media/audio/ui/camera_click.ogg
+ /system/media/audio/ui/Effect_Tick.ogg
+ /system/media/audio/ui/KeypressDelete.ogg
+ /system/media/audio/ui/KeypressReturn.ogg
+ /system/media/audio/ui/KeypressSpacebar.ogg
+ /system/media/audio/ui/KeypressStandard.ogg
++/system/media/audio/ui/LowBattery.ogg
+ /system/media/audio/ui/VideoRecord.ogg
+-/system/tts/lang_pico/de-DE_gl0_sg.bin
+-/system/tts/lang_pico/de-DE_ta.bin
+-/system/tts/lang_pico/en-GB_kh0_sg.bin
+-/system/tts/lang_pico/en-GB_ta.bin
++/system/media/bootanimation.zip
++/system/media/off.wav
++/system/media/on.wav
++/system/media/shutdonwanimation.zip
++/system/media/touchcalibrate
++/system/presetapp/CP_189Mail.apk
++/system/presetapp/CP_BestTone.apk
++/system/presetapp/CP_egame.apk
++/system/presetapp/CP_PIMct.apk
++/system/presetapp/CP_SFReader.apk
++/system/presetapp/CP_Vnet.apk
++/system/presetapp/XY_3RD_ECP.apk
++/system/presetapp/XY_3RD_iMusic.apk
++/system/presetapp/XY_3RD_SFVideo.apk
+ /system/tts/lang_pico/en-US_lh0_sg.bin
+ /system/tts/lang_pico/en-US_ta.bin
+-/system/tts/lang_pico/es-ES_ta.bin
+-/system/tts/lang_pico/es-ES_zl0_sg.bin
+-/system/tts/lang_pico/fr-FR_nk0_sg.bin
+-/system/tts/lang_pico/fr-FR_ta.bin
+-/system/tts/lang_pico/it-IT_cm0_sg.bin
+-/system/tts/lang_pico/it-IT_ta.bin
+ /system/usr/icu/icudt44l.dat
++/system/usr/keychars/7k_ffa_keypad.kcm.bin
+ /system/usr/keychars/qwerty2.kcm.bin
+ /system/usr/keychars/qwerty.kcm.bin
++/system/usr/keychars/surf_keypad.kcm.bin
++/system/usr/keylayout/7k_ffa_keypad.kl
++/system/usr/keylayout/7k_handset.kl
+ /system/usr/keylayout/AVRCP.kl
+ /system/usr/keylayout/qwerty.kl
++/system/usr/keylayout/surf_keypad.kl
+ /system/usr/share/bmd/RFFspeed_501.bmd
+ /system/usr/share/bmd/RFFstd_501.bmd
+ /system/usr/share/zoneinfo/zoneinfo.dat
+@@ -502,270 +889,6 @@
+ /system/usr/srec/config/en.us/models/generic8.lda
+ /system/usr/srec/config/en.us/models/generic8_m.swimdl
+ /system/usr/srec/config/en.us/models/generic.swiarb
+-/system/xbin/[
+-/system/xbin/[[
+-/system/xbin/add-property-tag
+-/system/xbin/agent
+-/system/xbin/arp
+-/system/xbin/ash
+-/system/xbin/attest
+-/system/xbin/avinfo
+-/system/xbin/avtest
+-/system/xbin/awk
+-/system/xbin/base64
+-/system/xbin/basename
+-/system/xbin/bash
+-/system/xbin/bbconfig
+-/system/xbin/bdaddr
+-/system/xbin/blockdev
+-/system/xbin/brctl
+-/system/xbin/btool
+-/system/xbin/bttest
+-/system/xbin/bunzip2
+-/system/xbin/busybox
+-/system/xbin/bzcat
+-/system/xbin/bzip2
+-/system/xbin/cal
+-/system/xbin/cat
+-/system/xbin/catv
+-/system/xbin/chattr
+-/system/xbin/check-lost+found
+-/system/xbin/chgrp
+-/system/xbin/chmod
+-/system/xbin/chown
+-/system/xbin/chroot
+-/system/xbin/clear
+-/system/xbin/cmp
+-/system/xbin/comm
+-/system/xbin/cp
+-/system/xbin/cpio
+-/system/xbin/cpueater
+-/system/xbin/crasher
+-/system/xbin/crond
+-/system/xbin/crontab
+-/system/xbin/cut
+-/system/xbin/daemonize
+-/system/xbin/date
+-/system/xbin/dbus-monitor
+-/system/xbin/dbus-send
+-/system/xbin/dc
+-/system/xbin/dd
+-/system/xbin/depmod
+-/system/xbin/devmem
+ /system/xbin/dexdump
+-/system/xbin/df
+-/system/xbin/diff
+-/system/xbin/directiotest
+-/system/xbin/dirname
+-/system/xbin/dmesg
+-/system/xbin/dnsd
+-/system/xbin/dos2unix
+-/system/xbin/dropbear
+-/system/xbin/dropbearkey
+-/system/xbin/du
+-/system/xbin/echo
+-/system/xbin/ed
+-/system/xbin/egrep
+-/system/xbin/env
+-/system/xbin/expand
+-/system/xbin/expr
+-/system/xbin/false
+-/system/xbin/fdisk
+-/system/xbin/fgrep
+-/system/xbin/find
+-/system/xbin/flashcp
+-/system/xbin/flash_lock
+-/system/xbin/flash_unlock
+-/system/xbin/flock
+-/system/xbin/fold
+-/system/xbin/free
+-/system/xbin/freeramdisk
+-/system/xbin/fsync
+-/system/xbin/ftpget
+-/system/xbin/ftpput
+-/system/xbin/fuser
+-/system/xbin/getopt
+-/system/xbin/grep
+-/system/xbin/groups
+-/system/xbin/gunzip
+-/system/xbin/gzip
+-/system/xbin/halt
+-/system/xbin/hciconfig
+-/system/xbin/hcidump
+-/system/xbin/hcitool
+-/system/xbin/head
+-/system/xbin/hexdump
+-/system/xbin/hstest
+-/system/xbin/id
+-/system/xbin/ifconfig
+-/system/xbin/insmod
+-/system/xbin/install
+-/system/xbin/iostat
+-/system/xbin/ip
+-/system/xbin/iwconfig
+-/system/xbin/iwgetid
+-/system/xbin/iwlist
+-/system/xbin/iwmulticall
+-/system/xbin/iwpriv
+-/system/xbin/iwspy
+-/system/xbin/kill
+-/system/xbin/killall
+-/system/xbin/killall5
+-/system/xbin/l2ping
+-/system/xbin/l2test
+-/system/xbin/latencytop
+-/system/xbin/length
+-/system/xbin/less
+-/system/xbin/librank
+-/system/xbin/lmptest
+-/system/xbin/ln
+-/system/xbin/losetup
+-/system/xbin/ls
+-/system/xbin/lsattr
+-/system/xbin/lsmod
+-/system/xbin/lsusb
+-/system/xbin/lzcat
+-/system/xbin/lzma
+-/system/xbin/lzop
+-/system/xbin/lzopcat
+-/system/xbin/man
+-/system/xbin/md5sum
+-/system/xbin/mesg
+-/system/xbin/mkdir
+-/system/xbin/mke2fs
+-/system/xbin/mkfifo
+-/system/xbin/mkfs.ext2
+-/system/xbin/mkfs.vfat
+-/system/xbin/mknod
+-/system/xbin/mkswap
+-/system/xbin/mktemp
+-/system/xbin/modinfo
+-/system/xbin/modprobe
+-/system/xbin/more
+-/system/xbin/mount
+-/system/xbin/mountpoint
+-/system/xbin/mpstat
+-/system/xbin/mv
+-/system/xbin/nanddump
+-/system/xbin/nandwrite
+-/system/xbin/nano
+-/system/xbin/nc
+-/system/xbin/netperf
+-/system/xbin/netserver
+-/system/xbin/netstat
+-/system/xbin/nice
+-/system/xbin/nohup
+-/system/xbin/nslookup
+-/system/xbin/ntpd
+-/system/xbin/od
+-/system/xbin/opcontrol
+-/system/xbin/oprofiled
+-/system/xbin/patch
+-/system/xbin/pgrep
+-/system/xbin/pidof
+-/system/xbin/ping
+-/system/xbin/pkill
+-/system/xbin/pmap
+-/system/xbin/poweroff
+-/system/xbin/printenv
+-/system/xbin/printf
+-/system/xbin/procmem
+-/system/xbin/procrank
+-/system/xbin/ps
+-/system/xbin/pstree
+-/system/xbin/pwd
+-/system/xbin/pwdx
+-/system/xbin/rawbu
+-/system/xbin/rctest
+-/system/xbin/rdev
+-/system/xbin/readlink
+-/system/xbin/realpath
+-/system/xbin/renice
+-/system/xbin/reset
+-/system/xbin/resize
+-/system/xbin/rev
+-/system/xbin/rfcomm
+-/system/xbin/rm
+-/system/xbin/rmdir
+-/system/xbin/rmmod
+-/system/xbin/route
+-/system/xbin/rsync
+-/system/xbin/run-parts
+-/system/xbin/rx
+-/system/xbin/scotest
+-/system/xbin/scp
+-/system/xbin/sdptest
+-/system/xbin/sed
+-/system/xbin/seq
+-/system/xbin/setconsole
+-/system/xbin/setserial
+-/system/xbin/setsid
+-/system/xbin/sftp-server
+ /system/xbin/sh
+-/system/xbin/sha1sum
+-/system/xbin/sha256sum
+-/system/xbin/sha512sum
+-/system/xbin/showmap
+-/system/xbin/showslab
+-/system/xbin/sleep
+-/system/xbin/sort
+-/system/xbin/split
+-/system/xbin/sqlite3
+-/system/xbin/ssh
+-/system/xbin/stat
+-/system/xbin/strace
+-/system/xbin/strings
+-/system/xbin/stty
+-/system/xbin/su
+-/system/xbin/sum
+-/system/xbin/swapoff
+-/system/xbin/swapon
+-/system/xbin/sync
+-/system/xbin/sysctl
+-/system/xbin/tac
+-/system/xbin/tail
+-/system/xbin/tar
+ /system/xbin/tcpdump
+-/system/xbin/tee
+-/system/xbin/telnet
+-/system/xbin/telnetd
+-/system/xbin/test
+-/system/xbin/tftp
+-/system/xbin/tftpd
+-/system/xbin/time
+-/system/xbin/timeinfo
+-/system/xbin/timeout
+-/system/xbin/top
+-/system/xbin/touch
+-/system/xbin/tr
+-/system/xbin/traceroute
+-/system/xbin/true
+-/system/xbin/ttysize
+-/system/xbin/tune2fs
+-/system/xbin/umount
+-/system/xbin/uname
+-/system/xbin/uncompress
+-/system/xbin/unexpand
+-/system/xbin/uniq
+-/system/xbin/unix2dos
+-/system/xbin/unlzma
+-/system/xbin/unlzop
+-/system/xbin/unxz
+-/system/xbin/unzip
+-/system/xbin/uptime
+-/system/xbin/usleep
+-/system/xbin/uudecode
+-/system/xbin/uuencode
+-/system/xbin/vfp-crasher
+-/system/xbin/vi
+-/system/xbin/vim
+-/system/xbin/watch
+-/system/xbin/wc
+-/system/xbin/wget
+-/system/xbin/which
+-/system/xbin/whoami
+-/system/xbin/xargs
+-/system/xbin/xz
+-/system/xbin/xzcat
+-/system/xbin/yes
+-/system/xbin/zcat

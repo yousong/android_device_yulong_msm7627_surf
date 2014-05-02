@@ -1,3 +1,19 @@
 #
 # system.prop for msm7627_surf
 #
+dalvik.vm.dexopt-data-only=1
+dalvik.vm.dexopt-flags=m=v,o=y
+dalvik.vm.verify-bytecode=false
+dalvik.vm.heapsize=40m
+dalvik.vm.execution-mode=int:jit
+dalvik.vm.checkjni=false
+
+ro.config.hwfeature_wakeupkey=1
+ro.min_pointer_dur=1
+#ro.sf.lcd_density=240
+persist.android.strictmode=0
+
+debug.sf.hw=1
+debug.composition.type=gpu
+debug.performance.tuning=1
+video.accelerate.hw=1

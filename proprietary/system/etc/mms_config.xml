@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- Version History
+        version 1 - initial version.
+        version 2 - added recipientLimit.
+        version 3 - added min/max recycler values.
+        version 4 - added sms to mms text threshold.
+-->
+
+<mms_config version="4">
+    <!-- Flag indicating whether MMS should be enabled -->
+    <bool name="enabledMMS">true</bool>
+
+    <!-- Maximum message size in bytes for a MMS message -->
+    <int name="maxMessageSize">1048576</int>
+
+    <!-- Maximum height for an attached image -->
+    <int name="maxImageHeight">480</int>
+
+    <!-- Maximum width for an attached image -->
+    <int name="maxImageWidth">320</int>
+
+    <!-- Maximum number of SMS message to save per thread before auto-delete kicks in.
+         This is the default value. -->
+    <int name="defaultSMSMessagesPerThread">200</int>
+
+    <!-- Maximum number of MMS message to save per thread before auto-delete kicks in.
+         This is the default value. -->
+    <int name="defaultMMSMessagesPerThread">20</int>
+
+    <!-- Minimum value for the number of messages kept per conversation. The user can never
+         set the limit below this value. -->
+    <int name="minMessageCountPerThread">10</int>
+
+    <!-- Maximum value for the number of messages kept per conversation. The user can never
+         set the limit above this value. -->
+    <int name="maxMessageCountPerThread">3000</int>
+
+    <!-- UAProf URL -->
+    <string name="uaProfUrl">http://www.google.com/oha/rdf/ua-profile-kila.xml</string>
+
+    <!-- Maximum number of recipients allowed per message. Use a value of -1
+         to indicate no limit. -->
+    <int name="recipientLimit">200</int>
+
+    <!-- Maximum number of SMS message segments in a long text message before converting
+         the SMS message to an MMS message. -->
+    <int name="smsToMmsTextThreshold">4</int>
+
+    <int name="max_db_msg_total">3000</int>
+    <!-- Maximum number of batch operation. -->
+    <int name="batch_oper_once_count">50</int>
+
+    <!-- Check the paramters for the Coolpad Register, need to confirm the detail. -->
+    <int name="dev_name">141</int>
+    <string name="gsm_auto_address">15014045501</string>
+    <string name="gsm_manul_address">15014045501</string>
+    <string name="cdma_auto_address">13392153098</string>
+    <string name="cdma_manul_address">13392153098</string>
+
+    <!-- 1:TelCom  2:Mobile  3:UimCom -->
+    <int name="telecom_type">1</int>
+
+    <!-- disk path:"/udisk/ or "/sdcard/" -->
+    <string name="disk_path">/sdcard/</string>
+
+    <!-- MessagingNotification toneVolume   default:60   -->
+    <int name="default_tone_volume">60</int>
+
+    <!-- GenerallSetting default_font_size   small:0    middle:1    big:2   -->
+    <int name="default_font_size">1</int>
+    
+    <!-- The type of regist,1 means regist lab address and 2 net address  -->
+    <int name="pref_key_dm_reg_location">2</int>
+
+    <!-- support application security or not.1 support; 0 not support  -->
+    <int name="support_app_security">1</int>
+
+    <bool name="card_1_high_speed">true</bool>
+    
+    <bool name="card_2_high_speed">false</bool>
+    
+    <!-- whether the card is the medium of storage message 
+		7550,2862,9060 set false,others set true -->
+	<bool name="is_card_medium">false</bool>
+	
+	<!-- 8810 cmt up mode need set true, 
+		because while both all card and phone are full,still can recieve message inbox -->
+	<bool name="is_cmt_mode">false</bool>
+
+    <!-- set default version 0.Publish Version; 1.RW Version; 2.XW Version; 3.SP Version-->
+	<int name="current_version">0</int>
+
+    <!-- indicating whether is exterior cooperation product -->
+    <bool name="ex_coop_product">false</bool>
+    
+    <!-- indicating whether auto get esn for CDMA -->
+    <bool name="feature_autogetesn">false</bool>
+
+    <!-- 0:display all; 1:only display cdma; 2:only display gsm -->
+    <int name="support_double_network">1</int>
+    
+    <bool name="Mms_Request_Of_Send_Report">true</bool>
+	<bool name="Mms_Request_Of_Read_Report">false</bool>
+	<!--  Mms Retrive Settings  -->
+	<bool name="Mms_Allow_Send_Report">true</bool>
+	<bool name="Mms_Allow_Read_Report">false</bool> 
+
+</mms_config>
